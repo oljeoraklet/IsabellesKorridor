@@ -3,7 +3,6 @@ const currentDate = new Date();
 const oneJan = new Date(currentDate.getFullYear(),0,1);
 const numberOfDays = Math.floor((currentDate - oneJan) / (24 * 60 * 60 * 1000));
 const currentWeek = Math.ceil(( currentDate.getDay() + 1 + numberOfDays) / 7);
-const testWeek = 43;
 
 //Selecting HTML elements
 const roomBtn = document.querySelector('.dropbtn');
@@ -61,11 +60,13 @@ exitButtons.forEach((exitButton) => {
 //Cleaning week calculation
 const IsItCleaningWeek = (roomNumber) => {
 
-    if (testWeek % numberOfRooms === roomNumber){
-        ChangeThePage("cleaning")
+    if (currentWeek % numberOfRooms === roomNumber){
+        console.log(roomNumber);
+       
+        ChangeThePage("cleaning");
     }
     else {
-        ChangeThePage("relax")
+        ChangeThePage("relax");
     }
 
 }
